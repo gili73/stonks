@@ -83,6 +83,8 @@ def main():
                     driver.implicitly_wait(10)
                     for request in driver.requests:
                         if request.response:
+                            logging.info(f"respones {request.response} ...")
+                            
                             if request.url.startswith('https://mayaapi.tase.co.il/api/fund/details'):
                                 response = get_issa_rest_api_response(request)
                                 symbol_price = response['SellPrice'] / 100  # ILA -> ILS
