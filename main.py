@@ -10,7 +10,7 @@ import chromedriver_autoinstaller
 from selenium.webdriver.chrome.options import Options
 from seleniumwire import webdriver
 
-logging.getLogger("seleniumwire").setLevel(logging.INFO)
+logging.getLogger("seleniumwire").setLevel(logging.ERROR)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 chromedriver_autoinstaller.install()
@@ -80,10 +80,10 @@ def main():
                         url = f"https://maya.tase.co.il/fund/{symbol}"
 
                     driver.get(url)
-                    driver.implicitly_wait(10)
+                    driver.implicitly_wait(30)
                     for request in driver.requests:
                         if request.response:
-                            logging.info(f"request.url {request.url} ...")
+                            //logging.info(f"request.url {request.url} ...")
                             
                             if request.url.startswith('https://mayaapi.tase.co.il/api/fund/details'):
                                 response = get_issa_rest_api_response(request)
