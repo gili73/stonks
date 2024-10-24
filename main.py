@@ -83,7 +83,7 @@ def main():
                     driver.implicitly_wait(30)
                     for request in driver.requests:
                         if request.response:
-                            #logging.info(f"request.url {request.url} ...")
+                            logging.info(f"request.url {request.url} ...")
                             
                             if request.url.startswith('https://mayaapi.tase.co.il/api/fund/details'):
                                 response = get_issa_rest_api_response(request)
